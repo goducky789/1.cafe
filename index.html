@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ひとつぶ珈琲｜焙煎したてを、一杯ずつ。</title>
+<meta name="description" content="店の奥に焙煎機のある小さな喫茶店、ひとつぶ珈琲。朝に焼いた豆を、その日のうちに一杯ずつ淹れます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="ひとつぶ珈琲 トップへ">
+      <svg viewBox="0 0 40 28" aria-hidden="true"><g transform="rotate(-25 20 14)"><ellipse cx="20" cy="14" rx="16" ry="11"/><path d="M5 15C13 8 26 20 35 12"/></g></svg>
+      ひとつぶ珈琲
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="ナビゲーションを開閉"><i></i></button>
+    <nav class="nav" id="site-nav" aria-label="メインナビゲーション" data-open="false">
+      <ul>
+        <li><a href="#about">お店のこと</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#access">営業時間とアクセス</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top" data-roast="1" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title" id="hero-title"><span>焙煎したてを、</span><span>一杯ずつ。</span></h1>
+        <div class="hero-lead">
+          <p>ひとつぶ珈琲は、焙煎機のある小さな喫茶店。朝に焼いた豆を、その日のうちに一杯ずつ淹れています。</p>
+          <p class="status" data-status>営業時間を確認しています</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#menu">メニューを見る</a>
+          <a class="btn btn-line" href="#access">営業時間とアクセス</a>
+        </div>
+      </div>
+
+      <div class="dial">
+        <svg class="cup" viewBox="0 0 360 360" role="img" aria-label="上から見たコーヒーカップ。選んだ焙煎の深さに合わせて、コーヒーの色と皿の上の豆が変わります。">
+          <defs>
+            <radialGradient id="sheen" cx="35%" cy="30%" r="80%">
+              <stop offset="0" stop-color="#fff" stop-opacity=".24"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle class="shadow" cx="186" cy="194" r="158"/>
+          <circle class="saucer" cx="180" cy="180" r="158"/>
+          <circle class="saucer-ring" cx="180" cy="180" r="130"/>
+          <rect class="handle" x="270" y="166" width="62" height="28" rx="14"/>
+          <rect class="handle-hole" x="294" y="175" width="24" height="10" rx="5"/>
+          <circle class="cup-body" cx="180" cy="180" r="106"/>
+          <circle class="cup-inner" cx="180" cy="180" r="92"/>
+          <g class="pour">
+            <circle class="liquid" cx="180" cy="180" r="84"/>
+            <circle cx="180" cy="180" r="84" fill="url(#sheen)"/>
+            <path class="glint" d="M120 140A70 70 0 0 1 170 112"/>
+          </g>
+          <circle class="ripple" cx="180" cy="180" r="84"/>
+          <g transform="translate(92 276) rotate(-28)">
+            <ellipse class="bean-fill" rx="20" ry="13"/>
+            <path class="bean-crease" d="M-18 1C-8 -7 7 7 18 -1"/>
+          </g>
+        </svg>
+
+        <fieldset class="picker">
+          <legend>焙煎の深さを選んでみてください</legend>
+          <div class="chips" id="chips"></div>
+        </fieldset>
+
+        <div class="roast-info" aria-live="polite">
+          <p class="bean-name" id="bean-name"></p>
+          <p class="bean-note" id="bean-note"></p>
+          <ul class="meters">
+            <li class="meter" data-meter="sour"><span>酸味</span><span class="segs" role="img"><i></i><i></i><i></i><i></i><i></i></span></li>
+            <li class="meter" data-meter="bitter"><span>苦味</span><span class="segs" role="img"><i></i><i></i><i></i><i></i><i></i></span></li>
+            <li class="meter" data-meter="body"><span>コク</span><span class="segs" role="img"><i></i><i></i><i></i><i></i><i></i></span></li>
+          </ul>
+          <p class="pair">合わせるなら：<strong id="pair"></strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap split">
+      <h2 class="h2" id="about-title">お店のこと</h2>
+      <div>
+        <p class="lead-serif">店の奥に、小さな焙煎機があります。毎朝焼いた豆を、注文を受けてから挽き、一杯ずつ淹れます。急がずに過ごせる席を、十八席だけ用意しました。</p>
+        <ul class="points">
+          <li>
+            <h3>焙煎の深さを選べます</h3>
+            <p>豆は常時4種類。浅煎りから深煎りまで、産地の違う豆を揃えています。迷ったら、好みの味を伝えてください。</p>
+          </li>
+          <li>
+            <h3>毎朝つくる甘いもの</h3>
+            <p>プリンと焼き菓子は、店の厨房で毎朝焼きます。珈琲の邪魔をしない、控えめな甘さです。</p>
+          </li>
+          <li>
+            <h3>豆の量り売り</h3>
+            <p>100gから量ってお渡しします。挽き方は、お使いの道具に合わせて調整します。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Menu ===== -->
+  <section class="section menu" id="menu" aria-labelledby="menu-title">
+    <div class="wrap">
+      <div class="menu-head">
+        <h2 class="h2" id="menu-title">メニュー</h2>
+        <p class="menu-note">価格は税込です。テイクアウトもできます。</p>
+      </div>
+      <div class="tabs" id="tabs" role="tablist" aria-label="メニューの種類"></div>
+      <div class="panel" id="panel" role="tabpanel" tabindex="0"></div>
+      <p class="menu-foot">ドリンクとスイーツのセットは、ドリンク代から100円引きです。</p>
+    </div>
+  </section>
+
+  <!-- ===== News ===== -->
+  <section class="section" id="news" aria-labelledby="news-title">
+    <div class="wrap split">
+      <h2 class="h2" id="news-title">お知らせ</h2>
+      <ul class="news-list">
+        <li><time datetime="2026-09-15">2026.09.15</time><p>秋のブレンド「木の実」の販売を始めました。中煎りで、ナッツとカカオの香りです。</p></li>
+        <li><time datetime="2026-09-01">2026.09.01</time><p>水出しコーヒーは9月30日までの限定です。</p></li>
+        <li><time datetime="2026-08-20">2026.08.20</time><p>焙煎した豆の量り売りを始めました。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Access ===== -->
+  <section class="section access" id="access" aria-labelledby="access-title">
+    <div class="wrap access-grid">
+      <div>
+        <h2 class="h2" id="access-title">営業時間とアクセス</h2>
+        <p class="status" data-status>営業時間を確認しています</p>
+        <table class="hours" id="hours">
+          <caption class="sr" style="position:absolute;left:-999px">営業時間</caption>
+          <tbody></tbody>
+        </table>
+        <p class="hours-note">祝日は日曜と同じ時間で営業します。月曜が祝日の場合は、翌火曜が休みです。</p>
+      </div>
+      <div>
+        <svg class="map" viewBox="0 0 400 270" role="img" aria-label="○○駅の東口から、ひとつぶ珈琲までの道順。まっすぐ進んで、交差点を曲がり、駅から徒歩3分です。">
+          <rect class="m-bg" width="400" height="270"/>
+          <path class="m-road" d="M0 154H400M111 60V270M249 60V270"/>
+          <rect class="m-block" x="16" y="84" width="76" height="52" rx="3"/>
+          <rect class="m-block" x="130" y="84" width="96" height="52" rx="3"/>
+          <rect class="m-block" x="272" y="84" width="112" height="52" rx="3"/>
+          <rect class="m-block" x="16" y="172" width="76" height="78" rx="3"/>
+          <rect class="m-block" x="130" y="172" width="96" height="78" rx="3"/>
+          <rect class="m-block" x="272" y="172" width="112" height="78" rx="3"/>
+          <path class="m-rail" d="M0 36H400"/>
+          <path class="m-rail-d" d="M0 36H400"/>
+          <rect class="m-station" x="61" y="46" width="100" height="26" rx="4"/>
+          <text class="m-station-t" x="111" y="64">○○駅 東口</text>
+          <path class="m-route" d="M111 72V154H249V206"/>
+          <text class="m-walk" x="178" y="115">駅から徒歩3分</text>
+          <circle class="m-pin" cx="249" cy="214" r="10"/>
+          <circle class="m-pin-dot" cx="249" cy="214" r="4"/>
+          <rect class="m-label-bg" x="268" y="201" width="112" height="26" rx="13"/>
+          <text class="m-label" x="324" y="219">ひとつぶ珈琲</text>
+        </svg>
+        <dl class="info">
+          <dt>住所</dt><dd>〒000-0000<br>○○県○○市△△町1-2-3 ひとつぶビル1階</dd>
+          <dt>最寄り駅</dt><dd>○○駅 東口から徒歩3分</dd>
+          <dt>席数</dt><dd>18席（カウンター6席、テーブル12席）</dd>
+          <dt>お支払い</dt><dd>現金、クレジットカード、交通系IC、QRコード</dd>
+          <dt>電話</dt><dd>00-0000-0000</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="foot-brand">ひとつぶ珈琲</p>
+    <p class="foot-tag">焙煎したてを、一杯ずつ。</p>
+    <div class="foot-row">
+      <ul>
+        <li><a href="#about">お店のこと</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#access">営業時間とアクセス</a></li>
+        <li><a href="https://www.instagram.com/" rel="noopener">Instagram</a></li>
+      </ul>
+      <p class="copy">&copy; 2026 ひとつぶ珈琲</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
